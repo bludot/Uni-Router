@@ -38,6 +38,10 @@ export default [{
       },
       sourceMap: false
     })
+  ],
+  external: [
+    'react',
+    'react-dom',
   ]
 }, {
   input: 'src/Router/React/index.js',
@@ -117,5 +121,9 @@ export default [{
       },
       sourceMap: false
     })
-  ]
+  ],
+  external: [
+    'react',
+    'react-dom',
+  ],
 }];
