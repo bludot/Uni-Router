@@ -10,6 +10,10 @@
 /build
 /es
 
+/examples/browser/node_modules
+/examples/browser/dist
+/examples/react/node_modules
+
 # misc
 .DS_Store
 .env.local
