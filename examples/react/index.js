@@ -5,4 +5,4 @@ import { ReactRouter as Router } from "univ-router";
 
 //render(<Hello />, document.getElementById('root'));
 console.log("routes:", routes);
-render(<Router config={routes} />, document.getElementById("root"));
+render(<Router config={routes} />, document.body);
