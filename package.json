@@ -4,7 +4,8 @@
   "description": "Own implementation of react router",
   "files": [
     "build",
-    "src"
+    "src",
+    "es"
   ],
   "keywords": [],
   "main": "index.js",
@@ -19,6 +20,7 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "cross-env": "^5.2.0",
     "rollup": "^0.63.4",
     "rollup-plugin-alias": "^1.4.0",
     "rollup-plugin-babel": "^3.0.7",
@@ -28,6 +30,7 @@
   },
   "scripts": {
     "build": "npx rollup -c --environment INCLUDE_DEPS,BUILD:production",
+    "build:es": "cross-env BABEL_ENV=es npx babel src --out-dir es",
     "clean": "rm -rf build",
     "prepare": "npm run clean && npm run build"
   }
