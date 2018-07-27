@@ -3,7 +3,6 @@ import history from "../history";
 import ErrorComp from "./ErrorComp";
 import extendComponent from "./ExtendComponent";
 import BaseRouter from "../BaseRouter";
-import { isEqual } from "lodash";
 
 var aggregation = (baseClass, ...mixins) => {
   class base extends baseClass {

@@ -1,23 +1,32 @@
 {
-  "name": "react-router-own-implementation",
-  "version": "0.0.607",
+  "name": "UniRouter",
+  "version": "1.0.0",
   "description": "Own implementation of react router",
+  "files": [
+    "build",
+    "src"
+  ],
   "keywords": [],
   "main": "index.js",
   "dependencies": {
-    "history": "4.7.2",
-    "lodash": "4.17.10",
-    "prop-types": "15.5.10",
-    "react": "15.5.3",
-    "react-dom": "15.5.3"
+    "history": "4.7.2"
   },
   "devDependencies": {
-    "react-scripts": "1.0.0"
+    "babel-cli": "^6.26.0",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "rollup": "^0.63.4",
+    "rollup-plugin-alias": "^1.4.0",
+    "rollup-plugin-babel": "^3.0.7",
+    "rollup-plugin-commonjs": "^9.1.4",
+    "rollup-plugin-node-resolve": "^3.3.0",
+    "rollup-plugin-uglify": "^4.0.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "build": "npx rollup -c --environment INCLUDE_DEPS,BUILD:production",
+    "clean": "rm -rf build",
+    "prepare": "npm run clean && npm run build"
   }
 }
