@@ -26,8 +26,8 @@ const extendComponent = (Component_, middleware) => {
       const props = {
         ...this.props,
         ...Component_.props,
-        location: history.location,
-        query: history.location.query
+        location: RouteHistory.location,
+        query: RouteHistory.location.query
       };
       return Component_.isReactComponent ? (
         <Component_ {...props} />

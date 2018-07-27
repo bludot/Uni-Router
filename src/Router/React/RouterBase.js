@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import history from "../history";
+import RouteHistory from "../history";
 import ErrorComp from "./ErrorComp";
 import extendComponent from "./ExtendComponent";
 import BaseRouter from "../BaseRouter";
@@ -46,7 +46,7 @@ class RouterBase extends aggregation(BaseRouter, Component) {
     super(props.config);
     this.state = {
       component: null,
-      location: history.location,
+      location: RouteHistory.location,
       loaded: false,
       middleware: () => {
         return Promise.resolve();
@@ -57,7 +57,7 @@ class RouterBase extends aggregation(BaseRouter, Component) {
   }
   getRoute() {
     return new Promise((resolve, reject) => {
-      resolve(this.route(history.location.pathname));
+      resolve(this.route(RouteHistory.location.pathname));
     });
   }
 
@@ -86,7 +86,7 @@ class RouterBase extends aggregation(BaseRouter, Component) {
   middleware() {
     console.log("middleware: ", this.state.middleware);
     return this.state
-      .middleware(history, history.location, () => {})
+      .middleware(RouteHistory, RouteHistory.location, () => {})
       .then((...args) => {
         this.setState({
           loaded: true
@@ -118,11 +118,11 @@ class RouterBase extends aggregation(BaseRouter, Component) {
         });
       }
       /**
-       * Initialize the history so that we have every component use
+       * Initialize the RouteHistory so that we have every component use
        * it to update
        */
-      // history.init(extendComponent, config, this.setState);
-      history.init(location => {
+      // RouteHistory.init(extendComponent, config, this.setState);
+      RouteHistory.init(location => {
         console.log("will change?");
         this.getRoute().then(route => {
           this.middleware().then(() => {
@@ -160,7 +160,7 @@ class RouterBase extends aggregation(BaseRouter, Component) {
    */
   render() {
     const props = {
-      location: history.location
+      location: RouteHistory.location
     };
     return this.state.loaded ? <this.state.component {...props} /> : null;
   }

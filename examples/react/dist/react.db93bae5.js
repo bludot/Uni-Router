@@ -22431,7 +22431,7 @@ var RouterBase = function (_aggregation) {
 
     _this2.state = {
       component: null,
-      location: history.location,
+      location: _history2.default.location,
       loaded: false,
       middleware: function middleware() {
         return Promise.resolve();
@@ -22448,7 +22448,7 @@ var RouterBase = function (_aggregation) {
       var _this3 = this;
 
       return new Promise(function (resolve, reject) {
-        resolve(_this3.route(history.location.pathname));
+        resolve(_this3.route(_history2.default.location.pathname));
       });
     }
 
@@ -22482,7 +22482,7 @@ var RouterBase = function (_aggregation) {
       var _this4 = this;
 
       console.log("middleware: ", this.state.middleware);
-      return this.state.middleware(history, history.location, function () {}).then(function () {
+      return this.state.middleware(_history2.default, _history2.default.location, function () {}).then(function () {
         _this4.setState({
           loaded: true
         });
@@ -22520,7 +22520,7 @@ var RouterBase = function (_aggregation) {
          * it to update
          */
         // history.init(extendComponent, config, this.setState);
-        history.init(function (location) {
+        _history2.default.init(function (location) {
           console.log("will change?");
           _this5.getRoute().then(function (route) {
             _this5.middleware().then(function () {
@@ -22564,7 +22564,7 @@ var RouterBase = function (_aggregation) {
     key: "render",
     value: function render() {
       var props = {
-        location: history.location
+        location: _history2.default.location
       };
       return this.state.loaded ? _react2.default.createElement(this.state.component, props) : null;
     }
@@ -22993,7 +22993,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //render(<Hello />, document.getElementById('root'));
 console.log("routes:", _routes2.default);
 (0, _reactDom.render)(_react2.default.createElement(_univRouter.ReactRouter, { config: _routes2.default }), document.body);
-},{"react":"node_modules/react/react.js","react-dom":"node_modules/react-dom/index.js","./routes.js":"routes.js","univ-router":"node_modules/univ-router/es/index.js"}],"../../../.npm/_npx/88650/lib/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"node_modules/react/react.js","react-dom":"node_modules/react-dom/index.js","./routes.js":"routes.js","univ-router":"node_modules/univ-router/es/index.js"}],"../../../.npm/_npx/89294/lib/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -23022,7 +23022,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '63698' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '65112' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
@@ -23163,5 +23163,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.parcelRequire, id);
   });
 }
-},{}]},{},["../../../.npm/_npx/88650/lib/node_modules/parcel/src/builtins/hmr-runtime.js","index.js"], null)
+},{}]},{},["../../../.npm/_npx/89294/lib/node_modules/parcel/src/builtins/hmr-runtime.js","index.js"], null)
 //# sourceMappingURL=/react.db93bae5.map
