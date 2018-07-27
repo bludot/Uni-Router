@@ -9,11 +9,14 @@ export default [{
   input: 'src/Router/Browser/index.js',
   output: {
     file: 'build/Browser/index.js',
-    format: 'cjs'
+    name: 'browser',
+    format: 'umd'
   },
   plugins: [
     cjs(),
-    resolve(),
+    resolve({
+      jsnext: true
+    }),
     babel({
       babelrc: false,
       presets: [
@@ -39,7 +42,8 @@ export default [{
   input: 'src/Router/React/index.js',
   output: {
     file: 'build/React/index.js',
-    format: 'cjs'
+    name: 'react',
+    format: 'umd'
   },
   plugins: [
     cjs({
@@ -49,6 +53,7 @@ export default [{
       }
     }),
     resolve({
+      jsnext: true,
       extensions: ['.mjs', '.js', '.jsx', '.json'],
     }),
     babel({
@@ -76,7 +81,8 @@ export default [{
   input: 'src/Router/index.js',
   output: {
     file: 'build/index.js',
-    format: 'cjs'
+    name: 'router',
+    format: 'umd'
   },
   plugins: [
     cjs({
@@ -86,6 +92,7 @@ export default [{
       }
     }),
     resolve({
+      jsnext: true,
       extensions: ['.mjs', '.js', '.jsx', '.json'],
     }),
     babel({
