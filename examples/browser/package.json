@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "Uni-Router": "github:bludot/Uni-Router",
+    "UnivRouter": "github:bludot/UnivRouter",
     "history": "4.7.2"
   },
   "devDependencies": {
