@@ -5,10 +5,10 @@
   "keywords": [],
   "main": "index.js",
   "dependencies": {
-    "UniRouter": "github:bludot/UniRouter",
     "history": "4.7.2",
     "prop-types": "15.5.10",
     "react": "15.5.3",
-    "react-dom": "15.5.3"
+    "react-dom": "15.5.3",
+    "univ-router": "github:bludot/UnivRouter"
   }
 }

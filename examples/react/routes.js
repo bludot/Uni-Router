@@ -2,7 +2,7 @@ import React from "react";
 import Hello from "./Hello";
 import App from "./App";
 import Test from "./Test";
-import { createConfig, RouterError } from "./Router";
+import { createConfig, RouterError } from "univ-router";
 
 const routes = [
   {

@@ -1,5 +1,5 @@
 import React from "react";
-import { history } from "./Router";
+import { RouteHistory as history } from "univ-router";
 
 const styles = {
   fontFamily: "sans-serif",

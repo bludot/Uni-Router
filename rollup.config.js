@@ -1,4 +1,5 @@
 import resolve from 'rollup-plugin-node-resolve';
+import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import babel from 'rollup-plugin-babel';
 import cjs from 'rollup-plugin-commonjs';
 import {
@@ -9,9 +10,10 @@ export default [{
   input: 'src/Router/Browser/index.js',
   output: {
     file: 'build/Browser/index.js',
-    format: 'cjs'
+    format: 'es'
   },
   plugins: [
+    peerDepsExternal(),
     cjs(),
     resolve({
       jsnext: true
@@ -42,7 +44,7 @@ export default [{
   output: {
     file: 'build/React/index.js',
     name: 'react',
-    format: 'cjs'
+    format: 'es'
   },
   plugins: [
     cjs({
@@ -81,9 +83,10 @@ export default [{
   output: {
     file: 'build/index.js',
     name: 'router',
-    format: 'cjs'
+    format: 'es'
   },
   plugins: [
+    peerDepsExternal(),
     cjs({
       include: 'node_modules/**',
       namedExports: {

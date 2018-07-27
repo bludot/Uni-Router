@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { history } from "./Router";
+import { RouteHistory as history } from "univ-router";
 
 class Hello extends React.Component {
   constructor(props) {
