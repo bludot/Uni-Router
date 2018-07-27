@@ -32,6 +32,6 @@
     "build": "npx rollup -c --environment INCLUDE_DEPS,BUILD:production",
     "build:es": "cross-env BABEL_ENV=es npx babel src --out-dir es",
     "clean": "rm -rf build es",
-    "prepare": "npm run clean && npm run build"
+    "prepare": "npm run clean && npm run build && npm run build:es"
   }
 }
