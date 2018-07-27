@@ -12,7 +12,7 @@
 
 /examples/browser/node_modules
 /examples/browser/dist
-/example/browser/.cache
+/examples/browser/.cache
 /examples/react/node_modules
 
 # misc

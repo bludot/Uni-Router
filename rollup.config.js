@@ -9,8 +9,7 @@ export default [{
   input: 'src/Router/Browser/index.js',
   output: {
     file: 'build/Browser/index.js',
-    name: 'browser',
-    format: 'umd'
+    format: 'cjs'
   },
   plugins: [
     cjs(),
@@ -44,7 +43,7 @@ export default [{
   output: {
     file: 'build/React/index.js',
     name: 'react',
-    format: 'umd'
+    format: 'cjs'
   },
   plugins: [
     cjs({
@@ -84,7 +83,7 @@ export default [{
   output: {
     file: 'build/index.js',
     name: 'router',
-    format: 'umd'
+    format: 'cjs'
   },
   plugins: [
     cjs({
