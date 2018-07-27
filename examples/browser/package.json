@@ -8,9 +8,8 @@
     "build": "parcel build index.html"
   },
   "dependencies": {
-    "Uni-Router": "github:bludot/Uni-Router",
-    "UnivRouter": "github:bludot/UnivRouter",
-    "history": "4.7.2"
+    "history": "4.7.2",
+    "univ-outer": "github:bludot/UnivRouter"
   },
   "devDependencies": {
     "parcel-bundler": "^1.6.1"

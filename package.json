@@ -1,5 +1,5 @@
 {
-  "name": "univ-outer",
+  "name": "univ-router",
   "version": "1.0.0",
   "description": "Own implementation of react router",
   "files": [
