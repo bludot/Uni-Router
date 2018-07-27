@@ -1,9 +1,14 @@
 {
-  "presets": [
-    ["env",
- 			{ modules: false }
-		],
-		"react"
-  ],
-    "plugins": ["transform-object-rest-spread"]
+	"env": {
+    "es": {
+      "presets": [
+        ["env", {
+          "useBuiltIns": false,
+          "modules": false
+        }],
+			'react'
+      ],
+      "plugins": ["transform-object-rest-spread"]
+    }
+  }
 }
