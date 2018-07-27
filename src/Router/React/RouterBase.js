@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import history from "../history";
+import RouteHistory from "../history";
 import ErrorComp from "./ErrorComp";
 import extendComponent from "./ExtendComponent";
 import BaseRouter from "../BaseRouter";

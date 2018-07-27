@@ -1,5 +1,5 @@
 import React from "react";
-import history from "../history";
+import RouteHistory from "../history";
 
 /**
  * Extend the component cuase it could be a stateless one.

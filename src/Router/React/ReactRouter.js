@@ -1,5 +1,5 @@
 import React from "react";
-import history from "../history";
+import RouteHistory from "../history";
 import RouterBase from "./RouterBase";
 
 class ReactRouter extends RouterBase {}
