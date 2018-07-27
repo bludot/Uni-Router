@@ -1,6 +1,6 @@
 import App from "./App";
 import Hello from "./Hello";
-import { createConfig, RouterError } from "UniRouter";
+import { createConfig, RouterError } from "UniRouter/es/Router/index.browser";
 
 const routes = [
   {
