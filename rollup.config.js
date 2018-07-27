@@ -20,7 +20,8 @@ export default [{
     babel({
       babelrc: false,
       presets: [
-        ['env', {
+        ["env", {
+          useBuiltIns: false,
           modules: false
         }]
       ],
@@ -59,9 +60,10 @@ export default [{
     babel({
       babelrc: false,
       presets: [
-        ['env', {
+        ["env", {
+          useBuiltIns: false,
           modules: false
-        }], 'react'
+        }], 'react',
       ],
       plugins: ["transform-object-rest-spread", "external-helpers"],
       exclude: 'node_modules/**' // only transpile our source code
@@ -99,8 +101,9 @@ export default [{
       babelrc: false,
       presets: [
         ['env', {
+          useBuiltIns: false,
           modules: false
-        }], 'react'
+        }], 'react',
       ],
       plugins: ["transform-object-rest-spread", "external-helpers"],
       exclude: 'node_modules/**' // only transpile our source code
