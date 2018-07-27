@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "history": "4.7.2",
-    "univ-outer": "github:bludot/UnivRouter"
+    "univ-router": "github:bludot/UnivRouter"
   },
   "devDependencies": {
     "parcel-bundler": "^1.6.1"
