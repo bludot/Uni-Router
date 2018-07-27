@@ -20,7 +20,6 @@ export default [{
       babelrc: false,
       presets: [
         ["env", {
-          useBuiltIns: false,
           modules: false
         }]
       ],
@@ -60,7 +59,6 @@ export default [{
       babelrc: false,
       presets: [
         ["env", {
-          useBuiltIns: false,
           modules: false
         }], 'react',
       ],
@@ -100,7 +98,6 @@ export default [{
       babelrc: false,
       presets: [
         ['env', {
-          useBuiltIns: false,
           modules: false
         }], 'react',
       ],
