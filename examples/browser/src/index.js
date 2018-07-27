@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, RouteHistory } from "UniRouter/es/Router/index.browser.js";
+import { BrowserRouter as Router, RouteHistory } from "UniRouter/es/index.browser";
 import routes from "./routes";
 
 let route = RouteHistory.location.pathname;
