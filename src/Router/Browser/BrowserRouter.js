@@ -14,9 +14,9 @@ class Router extends BaseRouter {
   }
   render() {
     return this.getRoute().then(route => {
+      RouteHistory.location.params = route.params;
       if (route instanceof Error) {
         console.log("instance of");
-        RouteHistory.location.params = route.params;
         route.component = ErrorComp.updateProps({ params: route.params });
       }
 
