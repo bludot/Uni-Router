@@ -141,6 +141,15 @@ class RouterBase extends aggregation(BaseRouter, Component) {
                 middleware: route.middleware
               });
             }
+          }).catch(() => {
+            const component = extendComponent(<ErrorComp error={err} />);
+            this.setState({
+              component: component,
+              middleware: () => {
+                return Promise.resolve();
+              },
+              loaded: true
+            });
           });
         });
       });

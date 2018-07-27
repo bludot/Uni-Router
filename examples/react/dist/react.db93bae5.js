@@ -21971,8 +21971,8 @@ var extendComponent = function extendComponent(Component_, middleware) {
       key: "render",
       value: function render() {
         var props = _extends({}, this.props, Component_.props, {
-          location: history.location,
-          query: history.location.query
+          location: _history2.default.location,
+          query: _history2.default.location.query
         });
         return Component_.isReactComponent ? _react2.default.createElement(Component_, props) : _react2.default.cloneElement(Component_, props);
       }
@@ -22516,10 +22516,10 @@ var RouterBase = function (_aggregation) {
           });
         }
         /**
-         * Initialize the history so that we have every component use
+         * Initialize the RouteHistory so that we have every component use
          * it to update
          */
-        // history.init(extendComponent, config, this.setState);
+        // RouteHistory.init(extendComponent, config, this.setState);
         _history2.default.init(function (location) {
           console.log("will change?");
           _this5.getRoute().then(function (route) {
@@ -22993,7 +22993,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //render(<Hello />, document.getElementById('root'));
 console.log("routes:", _routes2.default);
 (0, _reactDom.render)(_react2.default.createElement(_univRouter.ReactRouter, { config: _routes2.default }), document.body);
-},{"react":"node_modules/react/react.js","react-dom":"node_modules/react-dom/index.js","./routes.js":"routes.js","univ-router":"node_modules/univ-router/es/index.js"}],"../../../.npm/_npx/89294/lib/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"node_modules/react/react.js","react-dom":"node_modules/react-dom/index.js","./routes.js":"routes.js","univ-router":"node_modules/univ-router/es/index.js"}],"../../../.npm/_npx/91012/lib/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -23022,7 +23022,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '65112' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '61021' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
@@ -23163,5 +23163,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.parcelRequire, id);
   });
 }
-},{}]},{},["../../../.npm/_npx/89294/lib/node_modules/parcel/src/builtins/hmr-runtime.js","index.js"], null)
+},{}]},{},["../../../.npm/_npx/91012/lib/node_modules/parcel/src/builtins/hmr-runtime.js","index.js"], null)
 //# sourceMappingURL=/react.db93bae5.map
