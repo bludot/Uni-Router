@@ -8,7 +8,7 @@
     "build": "parcel build index.html"
   },
   "dependencies": {
-    "UniRouter": "github:bludot/UniRouter",
+    "UniRouter": "github:bludot/Uni-Router",
     "history": "4.7.2"
   },
   "devDependencies": {

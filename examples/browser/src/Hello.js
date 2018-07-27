@@ -1,4 +1,4 @@
-import { RouteHistory } from "UniRouter/es/index.browser";
+import { RouteHistory } from "Uni-Router/es/index.browser";
 
 const Hello = (function() {
   const props = { params: RouteHistory.location.params };
