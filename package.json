@@ -1,0 +1,23 @@
+{
+  "name": "react-router-own-implementation",
+  "version": "0.0.607",
+  "description": "Own implementation of react router",
+  "keywords": [],
+  "main": "index.js",
+  "dependencies": {
+    "history": "4.7.2",
+    "lodash": "4.17.10",
+    "prop-types": "15.5.10",
+    "react": "15.5.3",
+    "react-dom": "15.5.3"
+  },
+  "devDependencies": {
+    "react-scripts": "1.0.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
