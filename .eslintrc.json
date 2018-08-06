@@ -1,0 +1,100 @@
+{
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "allowImportExportEverywhere": true,
+    "ecmaVersion": 6,
+    "sourceType": "module"
+  },
+  "plugins": ["react"],
+  "extends": ["airbnb", "plugin:import/errors", "plugin:import/warnings"],
+  "rules": {
+    "import/no-absolute-path": "off",
+    "import/extensions": "off",
+    "import/no-dynamic-require": "off",
+    "import/no-extraneous-dependencies": "off",
+    "import/prefer-default-export": "off",
+    "react/require-extension": "off",
+    "react/jsx-no-target-blank": "off",
+    "react/no-danger": "off",
+    "react/button-has-type": "off",
+    "//": "we should enable this",
+    "react/destructuring-assignment": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
+    "jsx-a11y/anchor-has-content": "off",
+    "jsx-a11y/anchor-is-valid": "off",
+    "react/require-default-props": "off",
+    "react/jsx-child-element-spacing": "off",
+    "react/jsx-one-expression-per-line": "off",
+    "react/sort-comp": [
+      2,
+      {
+        "order": ["static-methods", "lifecycle", "everything-else", "render"]
+      }
+    ],
+    "no-underscore-dangle": "off",
+    "no-undef": "off",
+    "func-names": "off",
+    "no-console": "error",
+    "object-shorthand": "off",
+    "no-var": "off",
+    "vars-on-top": "off",
+    "max-len": "off",
+    "no-plusplus": "off",
+    "prefer-arrow-callback": "off",
+    "no-alert": "off",
+    "consistent-return": "off",
+    "one-var": "off",
+    "no-param-reassign": "off",
+    "prefer-template": "off",
+    "prefer-destructuring": "off",
+    "jsx-a11y/alt-text": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/interactive-supports-focus": "off",
+    "jsx-a11y/label-has-for": "off",
+    "no-restricted-globals": "off",
+    "react/no-unused-state": "off",
+    "jsx-a11y/iframe-has-title": "off",
+    "jsx-a11y/media-has-caption": "off",
+    "jsx-a11y/no-noninteractive-element-to-interactive-role": "off",
+    "react/no-array-index-key": "off",
+    "object-curly-newline": "off",
+    "function-paren-newline": "off",
+    "no-cond-assign": ["error", "except-parens"],
+    "new-cap": [
+      "error",
+      {
+        "properties": false
+      }
+    ],
+    "no-multiple-empty-lines": [
+      "error",
+      {
+        "max": 1
+      }
+    ],
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".js", ".jsx"]
+      }
+    ],
+    "react/no-unused-prop-types": [
+      2,
+      {
+        "skipShapeProps": true
+      }
+    ]
+  },
+  "env": {
+    "node": true,
+    "browser": true
+  },
+  "settings": {
+    "import/ignore": [],
+    "import/resolver": {
+      "webpack": {
+        "rconfig": "webpack.config.js"
+      }
+    }
+  }
+}

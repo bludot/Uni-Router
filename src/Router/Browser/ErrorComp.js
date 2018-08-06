@@ -1,4 +1,4 @@
-import RouteHistory from "../history";
+import RouteHistory from '../history';
 
 class ErrorComp {
   constructor() {
@@ -9,13 +9,15 @@ class ErrorComp {
   }
 
   createElement() {
-    this._element = document.createElement("h1");
+    this._element = document.createElement('h1');
     this._element.textContent = `error: ${JSON.stringify(this.props)}`;
     return this._element;
   }
+
   get element() {
     return this._element;
   }
+
   updateProps(props) {
     this.props = { ...this.props, ...props };
     return this.createElement();

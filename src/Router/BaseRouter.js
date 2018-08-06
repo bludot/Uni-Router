@@ -1,29 +1,30 @@
-import RouteTrie from "./RouteTrie";
-import RouteError from "./Error";
-
-const routeTrie = new RouteTrie();
+import RouteTrie from './RouteTrie';
+import RouteError from './Error';
 
 class Route {
   constructor(routes, node) {
     this.routes = routes;
     this.node = node;
-    for (var i in routes) {
-      routeTrie.add({
-        path: i,
-        val: routes[i]
+    this.routeTrie = new RouteTrie();
+    Object.keys(routes).forEach((key) => {
+      this.routeTrie.add({
+        path: key,
+        val: routes[key],
       });
-    }
+    });
   }
+
   match(query) {
-    return routeTrie.find(query);
+    return this.routeTrie.find(query);
   }
+
   route(url) {
     try {
       const result = this.match(url);
       return {
         ...result._value,
         ...{ params: result.params },
-        match: !!result
+        match: !!result,
       };
     } catch (err) {
       /*
@@ -31,19 +32,17 @@ class Route {
       return result;
     }
     */
-      const newError = class extends RouteError {
+      const NewError = class extends RouteError {
         constructor(...args) {
           super(...args);
           this.params = {
             message: this.message,
-            code: this.code
+            code: this.code,
           };
-          this.middleware = () => {
-            return Promise.resolve();
-          };
+          this.middleware = () => Promise.resolve();
         }
       };
-      return new newError(err.message, err.code);
+      return new NewError(err.message, err.code);
     }
   }
 }

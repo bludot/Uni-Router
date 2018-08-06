@@ -1,12 +1,12 @@
-import { RouteHistory } from "univ-router/es/index.browser";
+import { RouteHistory } from 'univ-router/es/index.browser';
 
-const Hello = (function() {
+const Hello = (function () {
   const props = { params: RouteHistory.location.params };
-  const element = document.createElement("h1");
+  const element = document.createElement('h1');
   element.appendChild(
-    document.createTextNode(`Hello, params: ${JSON.stringify(props.params)}`)
+    document.createTextNode(`Hello, params: ${JSON.stringify(props.params)}`),
   );
   return element;
-})();
+}());
 
 export default Hello;

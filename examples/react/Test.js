@@ -1,12 +1,15 @@
-import React from "react";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-class Test extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-  render() {
-    return <h1>This is a tess: {JSON.stringify(this.props.query)}</h1>;
-  }
-}
+const Test = ({ query }) => (
+  <h1>
+This is a tess:
+    {JSON.stringify(query)}
+  </h1>
+);
+
+Test.propTypes = {
+  query: PropTypes.instanceOf(Object),
+};
 
 export default Test;

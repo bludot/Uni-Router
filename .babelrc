@@ -1,14 +1,21 @@
 {
-	"env": {
+  "env": {
     "es": {
       "presets": [
         ["env", {
           "useBuiltIns": false,
           "modules": false
         }],
-			'react'
+      "react"
       ],
       "plugins": ["transform-object-rest-spread"]
-    }
+    },
+		"test": {
+			"presets": [
+				"env",
+			  "react"
+			],
+			"plugins": ["transform-object-rest-spread"]
+		}
   }
 }

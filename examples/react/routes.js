@@ -1,32 +1,31 @@
-import React from "react";
-import Hello from "./Hello";
-import App from "./App";
-import Test from "./Test";
-import { createConfig, RouterError } from "univ-router";
+import React from 'react';
+import { createConfig, RouterError } from 'univ-router';
+import Hello from './Hello';
+import App from './App';
+import Test from './Test';
 
 const routes = [
   {
-    path: "/",
-    component: <App />
+    path: '/',
+    component: <App />,
   },
   {
-    path: "/hello",
-    component: <Hello />
-  },
-  {
-    path: "/hello2/:apples",
+    path: '/hello',
     component: <Hello />,
-    middleware: (res, req, next) => {
-      if (!req.query.yes) {
-        throw new RouterError("unAuthorized", 401);
-      }
-      console.log("middleware", res, req, next);
-    }
   },
   {
-    path: "/test",
-    component: <Test />
-  }
+    path: '/hello2/:apples',
+    component: <Hello />,
+    middleware: (res, req) => {
+      if (!req.query.yes) {
+        throw new RouterError('unAuthorized', 401);
+      }
+    },
+  },
+  {
+    path: '/test',
+    component: <Test />,
+  },
 ];
 
 export default createConfig(routes);

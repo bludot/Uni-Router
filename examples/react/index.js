@@ -1,8 +1,7 @@
-import React from "react";
-import { render } from "react-dom";
-import routes from "./routes.js";
-import { ReactRouter as Router } from "univ-router";
+import React from 'react';
+import { render } from 'react-dom';
+import { ReactRouter as Router } from 'univ-router';
+import routes from './routes.js';
 
-//render(<Hello />, document.getElementById('root'));
-console.log("routes:", routes);
+// render(<Hello />, document.getElementById('root'));
 render(<Router config={routes} />, document.body);
