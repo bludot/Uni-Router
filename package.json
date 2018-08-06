@@ -1,6 +1,6 @@
 {
   "name": "univ-router",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Own implementation of react router",
   "files": [
     "build",
