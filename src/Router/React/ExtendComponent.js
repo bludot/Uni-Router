@@ -14,7 +14,6 @@ const extendComponent = (Component_, middleware) => {
       this.state = {};
     }
     shouldComponentUpdate(nextProps, nextState) {
-      console.log("prototype");
       const update = nextProps !== this.props && nextState !== this.state;
       if (update) {
         return true;

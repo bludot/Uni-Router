@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import RouteHistory from "../history";
 import ErrorComp from "./ErrorComp";
 import extendComponent from "./ExtendComponent";
@@ -41,7 +41,7 @@ var aggregation = (baseClass, ...mixins) => {
 /**
  * RouterBase is just the router that decides what to show.
  */
-class RouterBase extends aggregation(BaseRouter, Component) {
+class RouterBase extends aggregation(BaseRouter, React.Component) {
   constructor(props) {
     super(props.config);
     this.state = {
@@ -68,43 +68,18 @@ class RouterBase extends aggregation(BaseRouter, Component) {
    *        router totally out?
    */
 
-  /**
-   * If the component has changed then run the middleware
-   * (might not need this)
-   */
-  shouldComponentUpdate(nextProps, nextState) {
-    const update = nextState !== this.state;
-    console.log(nextState.location.pathname, this.state.location.pathname);
-    if (update) {
-      console.log("should update?", update);
-
-      return true;
-    }
-    return false;
-  }
-
   middleware() {
-    console.log("middleware: ", this.state.middleware);
     return this.state
       .middleware(RouteHistory, RouteHistory.location, () => {})
       .then((...args) => {
         this.setState({
           loaded: true
         });
-      })
-      .catch(err => {
-        const component = extendComponent(<ErrorComp error={err} />);
-        this.setState({
-          component: component,
-          loaded: true
-        });
       });
   }
   init() {
     return this.getRoute().then(route => {
-      console.log("theroute", route);
       if (route instanceof Error) {
-        console.log("instanceOf");
         this.setState({
           component: extendComponent(<ErrorComp error={route} />),
           middleware: () => {
@@ -122,9 +97,11 @@ class RouterBase extends aggregation(BaseRouter, Component) {
        * it to update
        */
       // RouteHistory.init(extendComponent, config, this.setState);
-      RouteHistory.init(location => {
-        console.log("will change?");
+      return RouteHistory.init(location => {
         this.getRoute().then(route => {
+          this.setState({
+            middleware: route.middleware,
+          });
           this.middleware().then(() => {
             if (route instanceof Error) {
               this.setState({
@@ -141,9 +118,10 @@ class RouterBase extends aggregation(BaseRouter, Component) {
                 middleware: route.middleware
               });
             }
-          }).catch(() => {
+          }).catch((err) => {
             const component = extendComponent(<ErrorComp error={err} />);
             this.setState({
+              location: location,
               component: component,
               middleware: () => {
                 return Promise.resolve();
@@ -160,8 +138,17 @@ class RouterBase extends aggregation(BaseRouter, Component) {
    * lets run middleware and set it to loaded
    */
   componentDidMount() {
-    console.log("running more than once?");
-    this.init().then(this.middleware);
+    this.init().then(this.middleware).catch((err) => {
+      const component = extendComponent(<ErrorComp error={err} />);
+      this.setState({
+        location: location,
+        component: component,
+        middleware: () => {
+          return Promise.resolve();
+        },
+        loaded: true
+      });
+    });
   }
 
   /**

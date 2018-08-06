@@ -20,7 +20,6 @@ class Route {
   route(url) {
     try {
       const result = this.match(url);
-      console.log("the result", result);
       return {
         ...result._value,
         ...{ params: result.params },
@@ -32,7 +31,6 @@ class Route {
       return result;
     }
     */
-      console.log("yeah?", err);
       const newError = class extends RouteError {
         constructor(...args) {
           super(...args);

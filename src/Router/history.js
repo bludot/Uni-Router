@@ -7,7 +7,11 @@ const history = (function() {
       .slice(1)
       .split("&")
       .reduce((acc, curr) => {
-        acc[curr.split("=")[0]] = curr.split("=")[1];
+        if (curr.indexOf('=') === -1) {
+          acc[curr] = true;
+        } else {
+          acc[curr.split("=")[0]] = curr.split("=")[1];
+        }
         return acc;
       }, {});
   };

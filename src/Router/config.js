@@ -2,8 +2,6 @@ const createConfig = routes => {
   const staticMiddleware = (req, res, next) => {
     return new Promise((resolve, reject) => {
       try {
-        console.log("run static middleware");
-        console.log(req, res, next);
         return resolve(next());
       } catch (err) {
         return reject(err);
@@ -12,7 +10,6 @@ const createConfig = routes => {
   };
   const middlewareWrapper = middleware => {
     return (req, res, next) => {
-      console.log("middlewareWrapper");
       return new Promise((resolve, reject) => {
         try {
           middleware(req, res, next);

@@ -16,7 +16,6 @@ class Router extends BaseRouter {
     return this.getRoute().then(route => {
       RouteHistory.location.params = route.params;
       if (route instanceof Error) {
-        console.log("instance of");
         route.component = ErrorComp.updateProps({ params: route.params });
       }
 
@@ -26,7 +25,6 @@ class Router extends BaseRouter {
           this.node.appendChild(route.component);
         })
         .catch(err => {
-          console.log(route);
           this.node.appendChild(
             document
               .createElement("h3")
