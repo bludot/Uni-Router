@@ -1,13 +1,6 @@
 import RouteError from './Error';
 
 class Node {
-  constructor() {
-    this._prev = null;
-    this._next = {};
-    this._param = null;
-    this._value = null;
-  }
-
   set next(val) {
     this._next = val;
   }
@@ -16,20 +9,12 @@ class Node {
     this._param = val;
   }
 
-  set prev(val) {
-    this._prev = val;
-  }
-
   set value(val) {
     this._value = val;
   }
 
   get next() {
-    return this._next;
-  }
-
-  get prev() {
-    return this._prev;
+    return this._next || null;
   }
 
   get value() {
@@ -48,27 +33,25 @@ class RouteTrie {
 
   add(route) {
     // const node = new Node(item);
-    const search = route.path.split('');
+    const search = route.path.length === 1 ? ['/'] : ['/'].concat(route.path.split('/').slice(1));
     var node = this.root;
-    while (search.length) {
+    while (search.length && node) {
       let letter = search.shift();
-      if (letter === ':') {
-        let word = '';
-        while (search[0] !== '/' && search.length) {
-          word += search.shift();
-        }
-        node.next[letter] = new Node(letter);
-        node.prev = node;
-        node = node.next[letter];
-        node.param = word;
-        letter = search.shift();
-        if (!letter) {
-          break;
-        }
+      if (!node.next) {
+        node.next = {};
       }
-      if (!node.next[letter]) {
+      if (letter[0] === ':') {
+        const word = letter.slice(1);
+        if (!node.next[':']) {
+          node.next[':'] = new Node(':');
+        }
+        node.next[':'].param = word;
+        letter = ':';
+      } else if (!node.next[letter]) {
         node.next[letter] = new Node(letter);
-        node.prev = node;
+        if (search.length > 0) {
+          node.next[letter].next = {};
+        }
       }
       node = node.next[letter];
     }
@@ -76,22 +59,21 @@ class RouteTrie {
   }
 
   find(_string) {
-    const search = _string.split('');
+    const search = _string.length === 1 ? ['/'] : ['/'].concat(_string.split('/').slice(1));
     const params = {};
     let node = this.root;
     while (search.length && node) {
+      if (!node.next) {
+        node = undefined;
+        break;
+      }
       if (node.next[':']) {
-        let word = '';
-        while (search[0] !== '/' && search.length) {
-          word += search.shift();
-        }
+        const word = search.shift();
         params[node.next[':'].param] = word;
         node = node.next[':'];
       } else if (node.next['*']) {
         node = node.next['*'];
-        while (search[0] !== '/' && search.length) {
-          search.shift();
-        }
+        search.shift();
       } else {
         node = node.next[search.shift()];
       }

@@ -1,7 +1,7 @@
 UnivRouter
 ===
 
-[![npm version](https://badge.fury.io/js/univ-router.svg)](https://badge.fury.io/js/univ-router) [![Build Status](https://travis-ci.org/bludot/UnivRouter.svg?branch=master)](https://travis-ci.org/bludot/UnivRouter)
+[![npm version](https://badge.fury.io/js/univ-router.svg)](https://badge.fury.io/js/%40bludot%2Funiv-router) [![Build Status](https://travis-ci.org/selfapy/univ-router.svg?branch=master)](https://travis-ci.org/selfapy/univ-router)
 
 Introduction
 ---

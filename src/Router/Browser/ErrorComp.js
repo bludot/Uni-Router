@@ -20,7 +20,7 @@ class ErrorComp {
 
   updateProps(props) {
     this.props = { ...this.props, ...props };
-    return this.createElement();
+    return this.createElement.bind(this);
   }
 }
 
