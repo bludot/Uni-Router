@@ -15,7 +15,7 @@ describe('Test Trie', () => {
       },
     });
     const route = trie.find('/');
-    expect(route).toEqual({ _prev: null, _next: {}, _param: null, _value: { path: '/', component: '<App />' }, params: {} });
+    expect(route).toEqual({ _value: { path: '/', component: '<App />' }, params: {} });
   });
   it('handle params (":")', () => {
     const trie = new Trie();
@@ -34,6 +34,13 @@ describe('Test Trie', () => {
   it('handle multiple params (":")', () => {
     const trie = new Trie();
     trie.add({
+      path: '/test/:param',
+      val: {
+        path: '/test/:param',
+        component: '<App />',
+      },
+    });
+    trie.add({
       path: '/test/:param/:another',
       val: {
         path: '/test/:param/:another',
@@ -45,6 +52,11 @@ describe('Test Trie', () => {
       param: 'test',
       another: 'anothertest',
     });
+    const oldRoute = trie.find('/test/oldtest');
+    expect(oldRoute.params).toEqual({
+      param: 'oldtest',
+    });
+    expect(oldRoute.params).not.toHaveProperty('another');
   });
   it('handle multiple params (":") and another route', () => {
     const trie = new Trie();

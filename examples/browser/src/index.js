@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, RouteHistory } from 'univ-router/es/index.browser';
+import { BrowserRouter as Router, RouteHistory } from '../../../es/index.browser';
 import routes from './routes';
 
 const route = RouteHistory.location.pathname;

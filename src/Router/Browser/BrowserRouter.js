@@ -23,7 +23,7 @@ class Router extends BaseRouter {
       return route
         .middleware(RouteHistory, RouteHistory.location, () => {})
         .then(() => {
-          this.node.appendChild(route.component);
+          this.node.appendChild(route.component());
         })
         .catch((err) => {
           this.node.appendChild(

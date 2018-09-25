@@ -1,4 +1,4 @@
-import { createConfig, RouterError } from 'univ-router/es/index.browser';
+import { createConfig, RouterError } from '../../../es/index.browser';
 import App from './App';
 import Hello from './Hello';
 
@@ -10,7 +10,7 @@ const routes = [
   {
     path: '/hello',
     component: Hello,
-    middleware: (res, req) => {
+    middleware: (req, res) => {
       if (!req.query.yes) {
         throw new RouterError('unAuthorized', 401);
       }
